@@ -1,0 +1,176 @@
+:root{
+  --bg:#f8f9fa; --panel:#ffffff; --panel2:#ffffff; --line:#e2e8f0;
+  --txt:#0f172a; --mut:#64748b; --acc:#35a7ff; --acc2:#38618c; --pink:#ff5964; --yellow:#ffe11f; --navy:#38618c;
+  --led-on:#ff2020; --led-glow:rgba(255,32,32,.55);
+}
+*{box-sizing:border-box}
+body{margin:0;background-color:var(--bg);background-image:radial-gradient(#dee2e6 1px,transparent 1px);background-size:20px 20px;color:var(--txt);font-family:Montserrat,ui-sans-serif,system-ui,Segoe UI,Roboto,Arial,sans-serif;min-height:100vh}
+::selection{background:rgba(53,167,255,.2)}
+.bg-glow{position:fixed;inset:0;pointer-events:none;background:transparent;z-index:0}
+h1,h2,h3{font-family:"Montserrat Black",Montserrat,sans-serif;font-weight:900;text-transform:uppercase;letter-spacing:-.025em;line-height:1.1}
+header.topbar,.hero,main.grid,.how,footer{position:relative;z-index:1}
+a{color:var(--acc)}
+code{background:#f1f5f9;padding:1px 6px;border-radius:6px;font-size:.85em;color:#0f172a}
+
+/* topbar — Codergarten navbar */
+.topbar{display:flex;justify-content:space-between;align-items:center;padding:16px 28px;border-bottom:1px solid #f1f5f9;backdrop-filter:blur(12px);position:sticky;top:0;background:rgba(255,255,255,.7);z-index:5}
+.brand{display:flex;gap:14px;align-items:center}
+.microbit-logo{display:grid;grid-template-columns:repeat(5,10px);grid-template-rows:repeat(5,10px);gap:3px;background:#fff;padding:10px;border-radius:6px;border:1px solid var(--line)}
+.microbit-logo span{width:10px;height:10px;border-radius:2px;background:#e2e8f0}
+.microbit-logo span.on{background:var(--acc);box-shadow:none}
+.microbit-logo span:nth-child(6).on{background:var(--pink)}
+.microbit-logo span:nth-child(13).on{background:var(--yellow)}
+.microbit-logo span:nth-child(24).on{background:var(--navy)}
+.brand-name{font-weight:900;letter-spacing:-.025em;font-size:18px;text-transform:uppercase;color:var(--navy)}
+.brand-name span{color:var(--acc);font-weight:300;font-style:italic;text-transform:uppercase}
+.brand-sub{color:var(--mut);font-size:11px;margin-top:2px;font-weight:700;text-transform:uppercase;letter-spacing:.15em}
+.top-links{display:flex;gap:8px;font-size:11px;align-items:center}
+.top-links a{color:var(--navy);text-decoration:none;font-weight:900;text-transform:uppercase;letter-spacing:.15em;padding:8px 12px;border-radius:6px}
+.top-links a:hover{color:var(--acc);background:rgba(53,167,255,.08)}
+
+/* hero — Codergarten header */
+.hero{max-width:1100px;margin:0 auto;padding:96px 24px 40px;text-align:center;border-bottom:1px solid #f1f5f9}
+.hero-badge{display:inline-block;font-size:11px;font-weight:900;letter-spacing:.4em;text-transform:uppercase;color:var(--pink);padding:7px 12px;margin-bottom:18px}
+.hero h1{font-size:clamp(48px,8vw,96px);line-height:.9;margin:0 0 14px;letter-spacing:-.05em;color:var(--navy)}
+.gradient{color:var(--acc);font-weight:300;font-style:italic;-webkit-text-fill-color:var(--acc);background:none}
+.hero-p{color:#475569;max-width:672px;font-size:18px;line-height:1.625;margin:0 auto;font-weight:500}
+
+.controls{display:grid;grid-template-columns:1.4fr 1fr 1fr .7fr;gap:14px;margin-top:24px;text-align:left}
+@media(max-width:900px){.controls{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.controls{grid-template-columns:1fr}}
+.search-wrap{display:flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:6px;padding:0 14px}
+.search-wrap:focus-within{border-color:var(--acc)}
+.search-icon{color:var(--mut)}
+.search-wrap input{flex:1;background:transparent;border:0;outline:0;color:var(--txt);font-size:15px;padding:14px 0;font-family:inherit}
+.control-group{background:#fff;border:1px solid var(--line);border-radius:6px;padding:10px 14px;display:flex;flex-direction:column;gap:8px;justify-content:center}
+.control-group label{font-size:11px;color:var(--mut);display:flex;justify-content:space-between;font-weight:900;text-transform:uppercase;letter-spacing:.15em}
+.control-group input[type=range]{width:100%;accent-color:var(--acc)}
+.control-group input[type=number]{background:#f8fafc;border:1px solid var(--line);color:var(--txt);border-radius:6px;padding:7px 10px;width:100%;font-family:inherit}
+.control-group input:focus{border-color:var(--acc);outline:none}
+.segmented{display:flex;background:#f8fafc;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.segmented button{flex:1;background:transparent;border:0;color:var(--mut);font-size:12px;font-weight:700;padding:8px 6px;cursor:pointer;font-family:inherit}
+.segmented button.active{background:var(--txt);color:#fff}
+
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0 8px;justify-content:center}
+.pills button{border:1px solid var(--line);background:#fff;color:#475569;padding:8px 14px;border-radius:6px;cursor:pointer;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.1em;font-family:inherit}
+.pills button.active{background:var(--txt);color:#fff;border-color:var(--txt);font-weight:900}
+.pills button:hover{border-color:var(--acc);color:var(--acc)}
+.pills button.active:hover{color:#fff;border-color:var(--txt)}
+.pills .n{opacity:.65;font-size:11px;margin-left:6px}
+
+/* grid — Codergarten cards */
+.grid{max-width:1100px;margin:0 auto;padding:48px 24px 30px;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:32px}
+.card{background:#fff;border:1px solid var(--line);border-radius:6px;padding:32px;display:flex;flex-direction:column;gap:12px;transition:all .3s;cursor:pointer}
+.card:hover{transform:translateY(-4px);border-color:rgba(53,167,255,.3);box-shadow:0 20px 25px -5px rgba(0,0,0,.1),0 8px 10px -6px rgba(0,0,0,.1)}
+.card-top{display:flex;justify-content:space-between;align-items:center}
+.cat{font-size:10px;font-weight:900;letter-spacing:.15em;text-transform:uppercase;color:var(--acc);background:rgba(53,167,255,.1);border:1px solid rgba(53,167,255,.2);padding:4px 9px;border-radius:6px}
+.frames{font-size:11px;color:var(--mut);font-weight:700}
+.led{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;background:#05070f;border:1px solid var(--line);border-radius:14px;padding:16px;width:fit-content;margin:4px auto}
+.led i{width:22px;height:22px;border-radius:50%;background:#1b2238;transition:all .12s}
+.led i.on{background:radial-gradient(circle at 35% 35%,#ffb4b4,#ff3b3b 60%,#b30000);box-shadow:0 0 12px var(--led-glow),0 0 3px #fff inset}
+.card h3{margin:2px 0 0;font-size:20px;letter-spacing:-.025em;color:var(--txt)}
+.card p{margin:0;color:#475569;font-size:13px;font-weight:500;min-height:20px;line-height:1.625}
+.card-actions{display:flex;gap:8px;margin-top:auto}
+.btn{flex:1;border-radius:6px;padding:12px 16px;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.15em;cursor:pointer;border:1px solid var(--line);font-family:inherit;transition:all .15s}
+.btn-copy{background:#0f172a;color:#fff;border:1px solid #0f172a}
+.btn-copy:hover{background:var(--pink);border-color:var(--pink)}
+.btn-view{background:#fff;color:#0f172a}
+.btn-view:hover{border-color:var(--acc);background:var(--acc);color:#fff}
+.btn:hover{filter:none}
+.empty{grid-column:1/-1;text-align:center;color:var(--mut);padding:60px 0}
+
+/* how — Codergarten sections */
+.how{max-width:1100px;margin:0 auto;padding:64px 24px 40px;border-top:1px solid #f1f5f9}
+.how h2{letter-spacing:-.025em;color:var(--txt);font-size:32px}
+.how .eyebrow{font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.4em;color:var(--pink);margin-bottom:8px}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin:32px 0}
+@media(max-width:800px){.steps{grid-template-columns:1fr}}
+.step{background:#fff;border:1px solid var(--line);border-radius:6px;padding:32px;display:flex;flex-direction:column;gap:8px;color:#475569;font-size:13px;font-weight:500;line-height:1.625;transition:all .3s}
+.step:hover{transform:translateY(-4px);border-color:rgba(53,167,255,.3);box-shadow:0 20px 25px -5px rgba(0,0,0,.1)}
+.step b{color:var(--txt);font-size:20px;text-transform:uppercase}
+.example{background:#0f172a;border:1px solid #0f172a;border-radius:6px;padding:18px;overflow:auto;font-size:12.8px;line-height:1.6;color:#e2e8f0}
+
+footer{background:#fff;border-top:1px solid #f1f5f9;padding:48px 24px;display:flex;justify-content:space-between;gap:12px;color:#94a3b8;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.2em;flex-wrap:wrap}
+
+/* modal — Codergarten light */
+.modal-backdrop{position:fixed;inset:0;background:rgba(15,23,42,.6);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:20px;z-index:20}
+.modal-backdrop[hidden]{display:none}
+.modal{background:#fff;border:1px solid var(--line);border-radius:6px;max-width:980px;width:100%;max-height:90vh;overflow:auto;display:grid;grid-template-columns:340px 1fr;position:relative;box-shadow:0 25px 50px -12px rgba(0,0,0,.25)}
+@media(max-width:820px){.modal{grid-template-columns:1fr}}
+.modal-x{position:absolute;top:12px;right:12px;background:#fff;border:1px solid var(--line);color:var(--txt);border-radius:6px;padding:7px 11px;cursor:pointer}
+.modal-x:hover{border-color:var(--pink);color:var(--pink)}
+.modal-left{padding:26px;border-right:1px solid #f1f5f9;display:flex;flex-direction:column;gap:14px;align-items:center;background:#f8fafc}
+.big-led{display:grid;grid-template-columns:repeat(5,44px);grid-template-rows:repeat(5,44px);gap:10px;background:#05070f;padding:22px;border-radius:18px;border:1px solid var(--line)}
+.big-led i{width:44px;height:44px;border-radius:50%;background:#1b2238}
+.big-led i.on{background:radial-gradient(circle at 35% 35%,#ffd2d2,#ff3b3b 55%,#8f0000);box-shadow:0 0 22px var(--led-glow)}
+.big-controls{display:flex;gap:8px;align-items:center;color:var(--mut);font-size:13px}
+.big-controls button{background:#fff;border:1px solid var(--line);color:var(--txt);border-radius:6px;padding:12px 16px;cursor:pointer;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.15em;font-family:inherit}
+.big-controls button:hover{border-color:var(--acc);color:var(--acc)}
+.frame-strip{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.frame-strip button{width:30px;height:30px;border-radius:6px;border:1px solid var(--line);background:#fff;color:var(--mut);cursor:pointer;font-size:12px;font-family:inherit}
+.frame-strip button.active{border-color:var(--acc);color:var(--txt);background:rgba(53,167,255,.1)}
+.modal-right{padding:26px}
+.m-cat{font-size:11px;font-weight:900;letter-spacing:.4em;text-transform:uppercase;color:var(--pink)}
+.modal-right h2{margin:6px 0;font-size:32px;letter-spacing:-.025em;color:var(--txt)}
+.modal-right p{color:#475569;margin:0 0 14px;font-weight:500}
+.code-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.15em;color:var(--mut)}
+.code-head button{background:#0f172a;border:1px solid #0f172a;color:#fff;border-radius:6px;padding:12px 16px;font-weight:900;font-size:10px;text-transform:uppercase;letter-spacing:.15em;cursor:pointer;font-family:inherit}
+.code-head button:hover{background:var(--pink);border-color:var(--pink)}
+.code{background:#0f172a;border:1px solid #0f172a;border-radius:6px;padding:16px;overflow:auto;max-height:420px;font-size:12.6px;line-height:1.6;color:#e2e8f0}
+.tip{margin-top:12px;font-size:13px;font-weight:500;color:#475569;background:rgba(53,167,255,.08);border:1px solid rgba(53,167,255,.25);padding:10px 12px;border-radius:6px}
+
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);background:#0f172a;color:#fff;font-weight:900;font-size:11px;text-transform:uppercase;letter-spacing:.15em;padding:12px 20px;border-radius:6px;z-index:30;box-shadow:0 10px 40px rgba(0,0,0,.25)}
+.toast[hidden]{display:none}
+
+/* builder — Codergarten light */
+.nav-create{flex:none;padding:12px 16px;font-size:10px}
+.top-links{align-items:center}
+.modal-wide{max-width:1080px;grid-template-columns:360px 1fr}
+.b-title{margin:0;font-size:16px;color:var(--txt)}
+.draw-grid{display:grid;grid-template-columns:repeat(5,52px);grid-template-rows:repeat(5,52px);gap:8px;background:#05070f;padding:18px;border-radius:16px;border:1px solid var(--line);touch-action:none}
+.draw-grid button{width:52px;height:52px;border-radius:12px;border:1px solid #2a3352;background:#1b2238;cursor:pointer;padding:0}
+.draw-grid button.on{background:radial-gradient(circle at 35% 35%,#ffd2d2,#ff3b3b 55%,#8f0000);box-shadow:0 0 16px var(--led-glow);border-color:#ff6b6b}
+.draw-tools{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.draw-tools button{background:#fff;border:1px solid var(--line);color:var(--txt);border-radius:6px;padding:12px 16px;cursor:pointer;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.15em;font-family:inherit}
+.draw-tools button:hover{border-color:var(--acc);background:var(--acc);color:#fff}
+.b-form{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:12px 0}
+.b-form label{display:flex;flex-direction:column;gap:6px;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.15em;color:var(--mut)}
+.b-form input,.b-form select{background:#fff;border:1px solid var(--line);color:var(--txt);border-radius:6px;padding:9px 11px;font-size:14px;width:100%;font-family:inherit}
+.b-form input:focus,.b-form select:focus{border-color:var(--acc);outline:none}
+.b-label{font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.15em;color:var(--mut);display:block;margin:12px 0 6px}
+#bImport{width:100%;background:#0f172a;border:1px solid #0f172a;border-radius:6px;color:#e2e8f0;font-family:ui-monospace,Consolas,monospace;font-size:12px;padding:12px;resize:vertical}
+.b-error{background:rgba(255,89,100,.1);border:1px solid rgba(255,89,100,.4);color:var(--pink);padding:9px 12px;border-radius:6px;font-size:13px;margin-top:10px}
+.b-error[hidden]{display:none}
+.b-submit-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.b-submit-row .btn{padding:12px 16px}
+@media(max-width:820px){.modal-wide{grid-template-columns:1fr}.draw-grid{grid-template-columns:repeat(5,48px);grid-template-rows:repeat(5,48px)}.draw-grid button{width:48px;height:48px}.b-form{grid-template-columns:1fr}}
+
+/* ===== Official MakeCode simulator board — Codergarten brand tint ===== */
+.sim-board{background:linear-gradient(180deg,#35a7ff,#38618c);border-radius:6px;padding:12px 12px 8px;position:relative;box-shadow:0 20px 25px -5px rgba(56,97,140,.25);border:1px solid #38618c;width:fit-content;margin:4px auto;max-width:100%}
+.sim-usb{width:44px;height:10px;background:#c7ccd6;border-radius:4px 4px 2px 2px;margin:0 auto 8px;box-shadow:inset 0 -2px 3px rgba(0,0,0,.35);position:relative}
+.sim-usb::after{content:"";position:absolute;inset:3px 6px;background:#6b7280;border-radius:2px}
+.sim-row{display:flex;align-items:center;gap:10px;justify-content:center}
+.sim-screen{background:#0b0b0d;border-radius:10px;padding:10px;box-shadow:inset 0 2px 8px rgba(0,0,0,.9),0 1px 0 rgba(255,255,255,.25)}
+.sim-btn{width:30px;height:30px;border-radius:50%;border:2px solid #e5e7eb;background:radial-gradient(circle at 35% 30%,#fff,#c9ced8 70%);color:#111827;font-weight:800;font-size:13px;cursor:pointer;flex:none;box-shadow:0 2px 4px rgba(0,0,0,.4)}
+.sim-btn:active{transform:translateY(1px);box-shadow:0 0 0 rgba(0,0,0,0)}
+.sim-btn.small{width:26px;height:26px;font-size:11px}
+.sim-logo{text-align:center;color:rgba(255,255,255,.85);font-size:10px;letter-spacing:.18em;text-transform:uppercase;margin-top:6px;font-weight:700}
+.sim-pins{display:flex;gap:4px;justify-content:center;margin-top:6px}
+.sim-pins span{font-size:9px;font-weight:900;color:#0f172a;background:linear-gradient(180deg,#ffe11f,#e8b800);border-radius:4px;padding:3px 0;width:30px;text-align:center}
+.sim-toolbar{display:flex;gap:6px;align-items:center;justify-content:center;background:#fff;border:1px solid var(--line);border-radius:6px;padding:6px 8px;font-size:11px;font-weight:900;text-transform:uppercase;letter-spacing:.1em;color:var(--mut)}
+.sim-toolbar button{background:#0f172a;border:1px solid #0f172a;color:#fff;border-radius:6px;padding:8px 12px;cursor:pointer;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.1em;font-family:inherit}
+.sim-toolbar button:hover{background:var(--pink);border-color:var(--pink)}
+.sim-card{transform:scale(1)}
+.sim-large{padding:16px 16px 10px}
+.sim-large .sim-btn{width:38px;height:38px;font-size:15px}
+
+/* official square red LEDs — override neon circles */
+.led{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;background:#050505;border:1px solid #000;border-radius:8px;padding:12px;width:fit-content;margin:0 auto}
+.led i{width:20px;height:20px;border-radius:4px;background:#2a1212;box-shadow:inset 0 1px 2px rgba(0,0,0,.9);transition:all .1s}
+.led i.on{background:#ff2020;box-shadow:0 0 10px rgba(255,32,32,.9),0 0 2px #fff inset}
+.big-led{display:grid;grid-template-columns:repeat(5,40px);grid-template-rows:repeat(5,40px);gap:8px;background:#050505;padding:18px;border-radius:10px;border:1px solid #000}
+.big-led i{width:40px;height:40px;border-radius:6px;background:#2a1212;box-shadow:inset 0 2px 4px rgba(0,0,0,.9)}
+.big-led i.on{background:#ff2020;box-shadow:0 0 20px rgba(255,32,32,.9),0 0 3px #fff inset}
+.draw-grid{display:grid;grid-template-columns:repeat(5,46px);grid-template-rows:repeat(5,46px);gap:7px;background:#050505;padding:16px;border-radius:10px;border:1px solid #000;touch-action:none}
+.draw-grid button{width:46px;height:46px;border-radius:6px;border:1px solid #1a1a1a;background:#2a1212;cursor:pointer;padding:0}
+.draw-grid button.on{background:#ff2020;box-shadow:0 0 14px rgba(255,32,32,.9);border-color:#ff6b6b}

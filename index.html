@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Codergarten micro:bit Animation Library — Simply, Possible.</title>
+<meta name="description" content="A beautiful gallery of micro:bit 5x5 LED animations. Preview, copy JavaScript function, paste into MakeCode." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<div class="bg-glow"></div>
+
+<header class="topbar">
+  <div class="brand">
+    <div class="microbit-logo"><span></span><span></span><span></span><span></span><span></span><span class="on"></span><span></span><span></span><span></span><span></span><span></span><span></span><span class="on"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span class="on"></span><span></span></div>
+    <div>
+      <div class="brand-name">Codergarten <span>micro:bit library</span></div>
+      <div class="brand-sub" id="statLine">Simply, possible • Loading animations…</div>
+    </div>
+  </div>
+  <nav class="top-links">
+    <a href="#gallery">Gallery</a>
+    <a href="#how">How to use</a>
+    <a href="#contribute">Contribute</a>
+    <a href="https://makecode.microbit.org/" target="_blank" rel="noopener">MakeCode ↗</a>
+    <button class="btn btn-copy nav-create" id="openBuilder">＋ Create</button>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-badge">A commitment to support curiosity and education</div>
+  <h1>Pick an animation.<br /><span class="gradient">Simply, possible.</span></h1>
+  <p class="hero-p">Real tech and design, project-based micro:bit courses in Bendigo. Every card is a live 5×5 preview — copy <code>function Boom() { … }</code>, paste into MakeCode JavaScript, then call it from <code>onStart</code> or a button.</p>
+
+  <div class="controls">
+    <div class="search-wrap">
+      <span class="search-icon">⌕</span>
+      <input id="search" type="search" placeholder="Search heartbeat, rocket, pacman, rain…" autocomplete="off" />
+    </div>
+    <div class="control-group">
+      <label>Preview speed <span id="speedVal">1×</span></label>
+      <input id="speed" type="range" min="0.25" max="2.5" step="0.25" value="1" />
+    </div>
+    <div class="control-group">
+      <label>Code loop mode</label>
+      <div class="segmented" id="modeSeg">
+        <button data-mode="infinite" class="active">while(true)</button>
+        <button data-mode="repeat4">×4 loop</button>
+        <button data-mode="once">play once</button>
+      </div>
+    </div>
+    <div class="control-group">
+      <label>Pause (ms)</label>
+      <input id="pause" type="number" min="50" max="2000" step="50" value="300" />
+    </div>
+  </div>
+
+  <div class="pills" id="cats"></div>
+</section>
+
+<main id="gallery" class="grid"></main>
+
+<section id="contribute" class="how">
+  <h2>Submit your own animation — open source</h2>
+  <div class="steps">
+    <div class="step"><b>1. Create</b><span>Hit <i>＋ Create</i> and draw 1–8 frames on the 5×5 grid. Or paste an existing MakeCode <code>function … basic.showLeds(...)</code> and hit <i>Parse</i> — it extracts frames automatically.</span></div>
+    <div class="step"><b>2. Align to the code format</b><span>Every submission must be 5 rows × 5 cols of <code>#</code> / <code>.</code> only, with <code>name, category, speed (50–2000ms)</code>. The builder validates this and generates both the MakeCode function and the library entry.</span></div>
+    <div class="step"><b>3. Submit</b><span>Save to <i>My Creations</i> (stored in your browser), then hit <i>Submit to GitHub</i> — it pre-fills an issue with your library entry. Maintainers merge it into <code>animations.js</code>. See <code>CONTRIBUTING.md</code>.</span></div>
+  </div>
+</section>
+
+<section id="how" class="how">
+  <h2>How to use in 20 seconds</h2>
+  <div class="steps">
+    <div class="step"><b>1. Copy</b><span>Hit <i>Copy function</i> on any card. You get a clean <code>function Name() { while(true){ basic.showLeds(...) } }</code>.</span></div>
+    <div class="step"><b>2. Paste</b><span>Go to <a href="https://makecode.microbit.org/" target="_blank" rel="noopener">makecode.microbit.org</a> → switch to <b>JavaScript</b> → paste the function anywhere outside other blocks.</span></div>
+    <div class="step"><b>3. Call it</b><span>Inside <code>basic.forever()</code>, <code>onStart</code>, or <code>input.onButtonPressed(Button.A, () =&gt; { Name() })</code> — call it. Flash to your micro:bit.</span></div>
+  </div>
+<pre class="example"><code>// Example — paste this, then call Boom()
+function Boom() {
+    while (true) {
+        basic.showLeds(`
+            . # . # .
+            . # . # .
+            . . # . .
+            . # . # .
+            . # . # .
+            `)
+        basic.pause(300)
+        basic.showLeds(`
+            # . . . #
+            . # . # .
+            . . # . .
+            . # . # .
+            # . . . #
+            `)
+        basic.pause(300)
+    }
+}
+input.onButtonPressed(Button.A, function () {
+    Boom()
+})</code></pre>
+</section>
+
+<footer>
+  <span><a href="https://www.codergarten.com" target="_blank" rel="noopener" style="color:inherit">Codergarten</a> • Simply, Possible. • Bendigo, VIC 3550</span>
+  <span id="count"></span>
+</footer>
+
+<!-- Detail modal -->
+<div class="modal-backdrop" id="modal" hidden>
+  <div class="modal">
+    <button class="modal-x" id="modalClose">✕</button>
+    <div class="modal-left">
+      <div class="sim-board sim-large">
+        <div class="sim-usb"></div>
+        <div class="sim-row">
+          <button class="sim-btn" id="simA" title="Button A — restart">A</button>
+          <div class="sim-screen"><div class="big-led" id="bigLed"></div></div>
+          <button class="sim-btn" id="simB" title="Button B — next frame">B</button>
+        </div>
+        <div class="sim-logo">micro:bit • simulator</div>
+        <div class="sim-pins"><span>0</span><span>1</span><span>2</span><span>3V</span><span>GND</span></div>
+      </div>
+      <div class="sim-toolbar">
+        <button id="simStop" title="Stop simulator">⏹ Stop</button>
+        <button id="simRestart" title="Restart simulator">↻ Restart</button>
+      </div>
+      <div class="big-controls">
+        <button id="playPause">⏸ Pause</button>
+        <button id="prevFrame">◀</button>
+        <span id="frameLabel">1 / 2</span>
+        <button id="nextFrame">▶</button>
+      </div>
+      <div class="frame-strip" id="frameStrip"></div>
+    </div>
+    <div class="modal-right">
+      <div class="m-cat" id="mCat"></div>
+      <h2 id="mName"></h2>
+      <p id="mDesc"></p>
+      <div class="code-head">
+        <span>MakeCode JavaScript — copy & paste</span>
+        <button id="mCopy">⧉ Copy function</button>
+      </div>
+      <pre class="code"><code id="mCode"></code></pre>
+      <div class="tip">Tip: <b>while(true)</b> loops forever — best called alone or on a button. Use <b>×4 loop</b> if you want it to finish and return.</div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" hidden>Copied! Paste into MakeCode JavaScript ✓</div>
+
+<!-- Builder modal: create + import + submit -->
+<div class="modal-backdrop" id="builder" hidden>
+  <div class="modal modal-wide">
+    <button class="modal-x" id="builderClose">✕</button>
+    <div class="modal-left">
+      <h3 class="b-title">Draw frame <span id="bFrameLabel">1 / 1</span></h3>
+      <div class="sim-board sim-large">
+        <div class="sim-usb"></div>
+        <div class="sim-row">
+          <button class="sim-btn" id="bSimA" title="Button A">A</button>
+          <div class="sim-screen"><div class="draw-grid" id="drawGrid"></div></div>
+          <button class="sim-btn" id="bSimB" title="Button B">B</button>
+        </div>
+        <div class="sim-logo">micro:bit • simulator</div>
+        <div class="sim-pins"><span>0</span><span>1</span><span>2</span><span>3V</span><span>GND</span></div>
+      </div>
+      <div class="draw-tools">
+        <button id="bClear">Clear</button>
+        <button id="bFill">Fill</button>
+        <button id="bInvert">Invert</button>
+      </div>
+      <div class="big-controls">
+        <button id="bPrev">◀</button>
+        <button id="bPlay">▶ Play</button>
+        <button id="bNext">▶</button>
+      </div>
+      <div class="frame-strip" id="bStrip"></div>
+      <div class="draw-tools">
+        <button id="bAdd">+ Add frame</button>
+        <button id="bDup">Duplicate</button>
+        <button id="bDel">Delete</button>
+      </div>
+      <div class="b-error" id="bError" hidden></div>
+    </div>
+    <div class="modal-right">
+      <div class="m-cat">Community submission</div>
+      <h2>Submit your animation</h2>
+      <div class="b-form">
+        <label>Name <input id="bName" placeholder="e.g. Heart Rocket" maxlength="40" /></label>
+        <label>Category
+          <select id="bCat">
+            <option>Faces</option><option>Love</option><option>Animals</option>
+            <option>People &amp; Fun</option><option>Arrows &amp; Shapes</option>
+            <option>Nature</option><option>Space &amp; Games</option><option>Loaders</option>
+          </select>
+        </label>
+        <label>Description <input id="bDesc" placeholder="Short description" maxlength="80" /></label>
+        <label>Speed (ms per frame) <input id="bSpeed" type="number" min="50" max="2000" step="50" value="300" /></label>
+      </div>
+      <label class="b-label">Import from MakeCode — paste a function, then Parse:</label>
+      <textarea id="bImport" rows="5" placeholder="function MyAnim() { basic.showLeds(`...`) basic.pause(300) ... }"></textarea>
+      <div class="draw-tools">
+        <button id="bParse">Parse MakeCode function</button>
+        <button id="bFromGallery">Load selected gallery code</button>
+      </div>
+      <div class="code-head"><span>Live MakeCode function preview</span><button id="bCopyFn">⧉ Copy function</button></div>
+      <pre class="code"><code id="bCode"></code></pre>
+      <div class="b-submit-row">
+        <button class="btn btn-view" id="bSave">Save to My Creations</button>
+        <button class="btn btn-view" id="bEntry">Copy library entry</button>
+        <button class="btn btn-view" id="bDownload">Download .json</button>
+        <button class="btn btn-copy" id="bGithub">Submit to GitHub ↗</button>
+      </div>
+      <div class="tip">Open-source rule: submissions must be your own 5×5 art, <code>#</code>/<code>.</code> only, 1–8 frames, family-friendly. GitHub submit opens a pre-filled issue — maintainers copy your entry into <code>animations.js</code>.</div>
+    </div>
+  </div>
+</div>
+
+<script src="animations.js"></script>
+<script src="builder.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
