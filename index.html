@@ -3,8 +3,19 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Codergarten micro:bit Animation Library — Simply, Possible.</title>
-<meta name="description" content="A beautiful gallery of micro:bit 5x5 LED animations. Preview, copy JavaScript function, paste into MakeCode." />
+<title>micro:bit Animations – Free 5×5 LED Gallery for MakeCode</title>
+<meta name="description" content="Free micro:bit 5×5 LED animations with live preview. Copy MakeCode JavaScript (basic.showLeds), paste into makecode.microbit.org and run on your BBC micro:bit." />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#ffffff" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="micro:bit Animations – Free 5×5 LED Gallery for MakeCode" />
+<meta property="og:description" content="Live 5×5 previews. Copy the MakeCode JavaScript function, paste it into MakeCode, run on start, forever, or a button." />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="micro:bit Animations – Free 5×5 LED Gallery for MakeCode" />
+<meta name="twitter:description" content="Free BBC micro:bit 5×5 LED animations. Preview, copy basic.showLeds code, paste into MakeCode." />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"micro:bit Animations","applicationCategory":"EducationalApplication","operatingSystem":"Web","description":"Free gallery of BBC micro:bit 5x5 LED animations. Live preview, copy MakeCode JavaScript with basic.showLeds, paste into makecode.microbit.org.","offers":{"@type":"Offer","price":"0"}}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
@@ -17,8 +28,8 @@
   <div class="brand">
     <div class="microbit-logo"><span></span><span></span><span></span><span></span><span></span><span class="on"></span><span></span><span></span><span></span><span></span><span></span><span></span><span class="on"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span class="on"></span><span></span></div>
     <div>
-      <div class="brand-name">Codergarten <span>micro:bit library</span></div>
-      <div class="brand-sub" id="statLine">Simply, possible • Loading animations…</div>
+      <div class="brand-name">micro:bit <span>animations</span></div>
+      <div class="brand-sub" id="statLine">Free 5×5 LED gallery for MakeCode</div>
     </div>
   </div>
   <nav class="top-links">
@@ -31,9 +42,9 @@
 </header>
 
 <section class="hero">
-  <div class="hero-badge">A commitment to support curiosity and education</div>
-  <h1>Pick an animation.<br /><span class="gradient">Simply, possible.</span></h1>
-  <p class="hero-p">Real tech and design, project-based micro:bit courses in Bendigo. Every card is a live 5×5 preview — copy <code>function Boom() { … }</code>, paste into MakeCode JavaScript, then call it from <code>onStart</code> or a button.</p>
+  <div class="hero-badge">Free • Open source • For MakeCode JavaScript</div>
+  <h1>micro:bit animations.<br /><span class="gradient">Copy. Paste. Play.</span></h1>
+  <p class="hero-p">A free gallery of BBC micro:bit 5×5 LED animations. Every card is a live preview — copy the MakeCode JavaScript function with <code>basic.showLeds</code>, paste it into MakeCode, then run it on start, forever, or a button press.</p>
 
   <div class="controls">
     <div class="search-wrap">
@@ -64,7 +75,8 @@
 <main id="gallery" class="grid"></main>
 
 <section id="contribute" class="how">
-  <h2>Submit your own animation — open source</h2>
+  <h2>Add your own micro:bit animation</h2>
+  <p class="hero-p" style="text-align:left;margin:0;max-width:none">Draw on a 5×5 grid, or paste MakeCode code to import frames. Free and open source.</p>
   <div class="steps">
     <div class="step"><b>1. Create</b><span>Hit <i>＋ Create</i> and draw 1–8 frames on the 5×5 grid. Or paste an existing MakeCode <code>function … basic.showLeds(...)</code> and hit <i>Parse</i> — it extracts frames automatically.</span></div>
     <div class="step"><b>2. Align to the code format</b><span>Every submission must be 5 rows × 5 cols of <code>#</code> / <code>.</code> only, with <code>name, category, speed (50–2000ms)</code>. The builder validates this and generates both the MakeCode function and the library entry.</span></div>
@@ -73,7 +85,7 @@
 </section>
 
 <section id="how" class="how">
-  <h2>How to use in 20 seconds</h2>
+  <h2>How to use an animation in MakeCode</h2>
   <div class="steps">
     <div class="step"><b>1. Copy</b><span>Hit <i>Copy function</i> on any card. You get a clean <code>function Name() { while(true){ basic.showLeds(...) } }</code>.</span></div>
     <div class="step"><b>2. Paste</b><span>Go to <a href="https://makecode.microbit.org/" target="_blank" rel="noopener">makecode.microbit.org</a> → switch to <b>JavaScript</b> → paste the function anywhere outside other blocks.</span></div>
@@ -105,10 +117,23 @@ input.onButtonPressed(Button.A, function () {
 })</code></pre>
 </section>
 
+<section id="faq" class="how" aria-label="Frequently asked questions">
+  <h2>micro:bit animation FAQ</h2>
+  <div class="steps" style="grid-template-columns:1fr 1fr">
+    <div class="step"><b>What is a micro:bit animation?</b><span>A sequence of 5×5 LED frames shown with <code>basic.showLeds</code> and <code>basic.pause</code> in MakeCode JavaScript. This gallery gives you the full function to copy.</span></div>
+    <div class="step"><b>How do I run it on my micro:bit?</b><span>Copy a function, open <a href="https://makecode.microbit.org/" target="_blank" rel="noopener">makecode.microbit.org</a>, switch to JavaScript, paste it, then call it from <code>basic.forever</code>, on start, or <code>input.onButtonPressed</code>. Then flash to your board.</span></div>
+    <div class="step"><b>Can I change speed or loop?</b><span>Yes. Use the Pause and Code loop mode controls. <code>while(true)</code> loops forever, ×4 plays four times, play once runs a single pass.</span></div>
+    <div class="step"><b>Can I make my own?</b><span>Yes. Click Create, draw 1–8 frames on the 5×5 grid, or paste MakeCode code to import frames, then save and submit.</span></div>
+  </div>
+</section>
+
 <footer>
-  <span><a href="https://www.codergarten.com" target="_blank" rel="noopener" style="color:inherit">Codergarten</a> • Simply, Possible. • Bendigo, VIC 3550</span>
+  <span>micro:bit animations • Free 5×5 LED gallery for MakeCode JavaScript</span>
   <span id="count"></span>
 </footer>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a micro:bit animation?","acceptedAnswer":{"@type":"Answer","text":"A sequence of 5x5 LED frames shown with basic.showLeds and basic.pause in MakeCode JavaScript."}},{"@type":"Question","name":"How do I run it on my micro:bit?","acceptedAnswer":{"@type":"Answer","text":"Copy a function, open makecode.microbit.org, switch to JavaScript, paste it, call it from basic.forever, on start, or a button, then flash."}},{"@type":"Question","name":"Can I change speed or loop?","acceptedAnswer":{"@type":"Answer","text":"Yes. Adjust pause time and loop mode: while(true), x4 loop, or play once."}},{"@type":"Question","name":"Can I make my own?","acceptedAnswer":{"@type":"Answer","text":"Yes. Use Create to draw 1-8 frames on a 5x5 grid or import MakeCode code."}}]}
+</script>
 
 <!-- Detail modal -->
 <div class="modal-backdrop" id="modal" hidden>

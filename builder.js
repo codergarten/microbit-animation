@@ -4,7 +4,7 @@
 "use strict";
 
 // >>> SET THIS to enable one-click GitHub issues, e.g. "yourname/microbit-animations"
-const GITHUB_REPO = ""; // e.g. "rushabh/microbit-motion-library"
+const GITHUB_REPO = "codergarten/microbit-animation"; // e.g. "rushabh/microbit-motion-library"
 
 const LS_KEY = "microbit_custom_anims_v1";
 const $ = (id)=>document.getElementById(id);
